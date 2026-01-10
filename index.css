@@ -1,0 +1,28 @@
+header{
+    width: 100%;
+    height: 70px;
+    background-color: #3B4953;
+
+    .appName{
+        text-align: center;
+        font-weight: bold;
+        color: #E3E3E3;
+        
+    }
+}
+.file-upload-form{
+    overflow-x: hidden;
+}
+table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
