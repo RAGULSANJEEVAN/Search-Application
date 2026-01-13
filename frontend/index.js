@@ -6,7 +6,7 @@ let currentRequestId = 0;
 //     console.log('loadSubFolders')
 //   const folderId = document.getElementById("folderId").value;
 
-//   fetch(`https://your-render-app.onrender.com/folders/${folderId}`)
+//   fetch(`https://search-application-d4c3.onrender.com/folders/${folderId}`)
 //     .then(res => res.json())
 //     .then(data => {
 //       const select = document.getElementById("subFolderSelect");
@@ -25,7 +25,7 @@ function loadSubFolders() {
         return;
     }
 
-    fetch(`https://your-render-app.onrender.com/folders/${folderId}`)
+    fetch(`https://search-application-d4c3.onrender.com/folders/${folderId}`)
         .then(res => res.json())
         .then(data => {
             console.log("Subfolders:", data); // 🔍 DEBUG
@@ -51,7 +51,7 @@ function loadFiles() {
 
     const folderId = document.getElementById("subFolderSelect").value;
 
-    fetch(`https://your-render-app.onrender.com/files/${folderId}`)
+    fetch(`https://search-application-d4c3.onrender.com/files/${folderId}`)
         .then(res => res.json())
         .then(data => {
             console.log('data11', data); // ✅ CORRECT PLACE
@@ -77,7 +77,7 @@ function loadColumns() {
         `<option>Loading...</option>`;
     renderTable([]);
 
-    fetch(`https://your-render-app.onrender.com/columns/${fileId}`)
+    fetch(`https://search-application-d4c3.onrender.com/columns/${fileId}`)
         .then(res => res.json())
         .then(cols => {
             // Ignore stale responses
@@ -108,7 +108,7 @@ function retryLoadColumns(fileId, requestId, retries = 2) {
     if (retries === 0) return;
 
     setTimeout(() => {
-        fetch(`https://your-render-app.onrender.com/columns/${fileId}`)
+        fetch(`https://search-application-d4c3.onrender.com/columns/${fileId}`)
             .then(res => res.json())
             .then(cols => {
                 if (requestId !== currentRequestId) return;
@@ -131,7 +131,7 @@ function retryLoadColumns(fileId, requestId, retries = 2) {
 function loadData(fileId) {
     const requestId = currentRequestId;
 
-    fetch(`https://your-render-app.onrender.com/read-excel/${fileId}`)
+    fetch(`https://search-application-d4c3.onrender.com/read-excel/${fileId}`)
         .then(res => res.json())
         .then(data => {
             if (requestId !== currentRequestId) return;
@@ -152,7 +152,7 @@ function retryLoadData(fileId, requestId, retries = 2) {
     }
 
     setTimeout(() => {
-        fetch(`https://your-render-app.onrender.com/read-excel/${fileId}`)
+        fetch(`https://search-application-d4c3.onrender.com/read-excel/${fileId}`)
             .then(res => res.json())
             .then(data => {
                 if (requestId !== currentRequestId) return;
