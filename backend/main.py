@@ -4,6 +4,9 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import openpyxl
 import io
+import os, json
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
@@ -16,9 +19,20 @@ app.add_middleware(
 )
 
 SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
-creds = service_account.Credentials.from_service_account_file(
-    "drive-excel-reader-484211-200618b280b7.json", scopes=SCOPES
+
+
+creds_info = json.loads(
+    os.environ["SEARCH_APPLICATION"]
 )
+
+creds = service_account.Credentials.from_service_account_info(
+    creds_info,
+    scopes=[
+        "https://www.googleapis.com/auth/drive.readonly",
+        "https://www.googleapis.com/auth/spreadsheets.readonly"
+    ]
+)
+
 
 drive = build("drive", "v3", credentials=creds)
 sheets = build("sheets", "v4", credentials=creds)
