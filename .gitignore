@@ -1,0 +1,12 @@
+# Secrets
+credentials.json
+drive-excel-reader-484211-200618b280b7.json
+*.json
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# OS
+.DS_Store

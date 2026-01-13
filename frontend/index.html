@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Application</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&family=Trocchi&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h4 class="appName pt-3">Search Application</h4>
+    </header>
+    <main class="container mt-4">
+
+        <div class="search p-4 mb-4">
+            <div class="row title align-items-center">
+                <div class="col">
+                    <h5>Search Details</h5>
+                </div>
+
+                <div class="col-auto ms-auto">
+                    <!-- <button class="btn btn-refresh" type="button" id="button-addon2">
+                        <i class="fa-solid fa-arrow-rotate-right"></i> Refresh
+                    </button> -->
+                </div>
+
+                <hr>
+            </div>
+
+            <div class="row g-3 mt-1">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient’s username" id="folderId"
+                        aria-label="Recipient’s username" aria-describedby="button-addon2">
+                    <button class="btn " type="button" id="button-addon2" onclick="loadSubFolders()">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Load Subfolders</button>
+                </div>
+
+                <!-- <div class="col-12">
+                    <input type="text"  class="form-control" placeholder="Paste Google Drive Folder ID">
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary w-100" onclick="loadSubFolders()">
+                        Load Subfolders
+                    </button>
+                </div> -->
+
+                <div class="col-md-4">
+                    <select id="subFolderSelect" class="form-select" onchange="loadFiles()">
+                        <option value="">Select Subfolder</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <select id="fileSelect" class="form-select" onchange="loadColumns()">
+                        <option value="">Select Excel File</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <select id="columnSelect" class="form-select">
+                        <option value="">Select Column</option>
+                    </select>
+                </div>
+
+                <div class="col-md-8">
+                    <input type="text" id="filterInput" class="form-control" placeholder="Search value">
+                </div>
+
+                <div class="col-md-4">
+                    <button class="btn w-100" onclick="filterTable()"><i class="fa-solid fa-magnifying-glass"></i>
+                        Search</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="table-card mt-4">
+                <div class="table-responsive">
+                    <table id="excelTable" class="table table-bordered mb-0">
+                        <thead>
+                            <tr id="tableHeader"></tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
